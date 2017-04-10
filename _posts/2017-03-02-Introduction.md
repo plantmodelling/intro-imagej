@@ -33,7 +33,7 @@ date:   2017-04-03
 - **loss of informations**
 - light
 - **DO NOT USE**
-- [Minervini, M. et al. (2015) The significance of image compression in plant phenotyping applications. Funct. Plant Biol.](http://www.publish.csiro.au/?paper=FP15033)
+- Minervini, M. et al. (2015) The significance of image compression in plant phenotyping applications. Funct. Plant Biol.[website](http://www.publish.csiro.au/?paper=FP15033) | [PDF](https://paperpile.com/app/p/f7d9b25d-40f9-02c9-8d0a-f343d19d25e1)
 
 ## TIFF
 - no compression
