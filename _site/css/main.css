@@ -25,10 +25,16 @@ h1 {
 }
 
 h2 {
-  font-size: 130%; color: #323232}
+  font-size: 120%; 
+  color: #323232;
+  margin-top: 1.2em;
+  }
 
 h3 {
-  font-size: 120%; color: #323232 }
+  font-size: 120%; 
+  color: #323232;
+  margin-top: 1em;
+}
 
 h1 { margin-bottom: 1em; }
 p { margin: 1em 0; color: #323232;}

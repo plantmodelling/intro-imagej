@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Start with macros</title>
+        <meta name="viewport" content="width=device-width">
+        <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/imagej/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/imagej/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="site">
+          <div class="header">
+            <center><img src="/imagej/img/imagej.png" style="width: 15%; height: 15%"/>​</center>
+            <center><h1 class="title"><a href="/imagej/">Introduction to ImageJ</a></h1></center>
+          </div>
+
+          <div class="PageNavigation">
+  
+    <a class="prev" href="/imagej/2017/04/10/binary.html">&laquo; Working with binary</a>
+  
+  
+    <a class="next" href="/imagej/2017/04/10/stacks.html">Working with stacks &raquo;</a>
+  
+</div>
+
+
+<h1>Start with macros</h1>
+<p class="meta">10 Apr 2017</p>
+<br>
+
+
+<div class="post">
+<h2 id="macro-are-made-to-streamline-your-analysis">Macro are made to streamline your analysis</h2>
+
+<p>Simply put, an ImageJ macro is a succession of existing ImageJ commands. Once you have defined exactly the type of analysis you would like to eprfom on your images, it is worth creating a macro with the different steps. This as two advantages.</p>
+
+<p>First, it help you keep track of all the steps you used in your analysis. If you need to do the same analysis a year later, or ou want to check which algorithm you used when writing the paper, macro are perfect for that. They are a nice way to keep track of eveything manipulation and analysis you did on your images.</p>
+
+<p>Secondly, if you need to make 1000 times the same analysis on your images, a macro is defenitivelly the way to do it. Define your pipeline on several test images. If possible pick them such as they represent the variability in your dataset. Record the step to create a macro and apply it on the whole dataset. It will save you a lot of time and avoid errors.</p>
+
+<h2 id="record-macro">Record macro</h2>
+
+<h2 id="imagej-macro-language-is-a-simplified-version-of-java">ImageJ macro language is a simplified version of Java</h2>
+
+<p>The ImageJ macro language is a modified version of Java. Therefore, they share some similarities. Some examples below.</p>
+
+<p>Commented lines start with <code class="highlighter-rouge">//</code></p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// This is a commented line</span></code></pre></figure>
+
+<p>Each line need to finish with an <code class="highlighter-rouge">;</code></p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Each line need to end with ";"</span>
+<span class="n">run</span><span class="o">(</span><span class="s">"Convert to Mask"</span><span class="o">);</span></code></pre></figure>
+
+<p>But not foor loops start and end</p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Not for loop start</span>
+<span class="k">for</span><span class="o">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">;</span><span class="n">k</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">;</span> <span class="n">k</span><span class="o">++){</span> 
+	<span class="c1">// But do not forget inside the loop</span>
+	<span class="n">print</span><span class="o">(</span><span class="n">k</span><span class="o">);</span> 
+<span class="o">}</span> <span class="c1">// Or end</span></code></pre></figure>
+
+<p>The first element in a vector as the index <code class="highlighter-rouge">0</code></p>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// The first element of a vector has the index 0</span>
+<span class="n">dir</span><span class="o">=</span><span class="n">getDirectory</span><span class="o">(</span><span class="s">"Where are your images"</span><span class="o">);</span>  <span class="c1">// ask the user to select a directory</span>
+<span class="n">list</span><span class="o">=</span><span class="n">getFileList</span><span class="o">(</span><span class="n">dir</span><span class="o">);</span>	<span class="c1">// Get the list of file in that directort as a vector of names</span>
+<span class="n">num</span><span class="o">=</span><span class="n">list</span><span class="o">.</span><span class="na">length</span><span class="o">;</span>  <span class="c1">// Get the length of the name vector</span>
+
+<span class="k">for</span><span class="o">(</span><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">;</span><span class="n">k</span> <span class="o">&lt;</span> <span class="n">num</span> <span class="o">;</span> <span class="n">k</span><span class="o">++){</span> <span class="c1">// Loop over the vector length</span>
+	<span class="n">open</span><span class="o">(</span><span class="n">dir</span><span class="o">+</span><span class="n">list</span><span class="o">[</span><span class="n">k</span><span class="o">]);</span>   <span class="c1">// Open each image in the vector</span>
+	<span class="n">close</span><span class="o">();</span>  <span class="c1">// Close the openned image</span>
+<span class="o">}</span></code></pre></figure>
+
+
+
+
+
+</br></br>
+</hr>
+</br></br>
+ <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'intro-to-imageJ'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+	</div>
+</div>
+
+
+
+          
+            <div class="contact">
+              </br></br>
+              <hr>
+              </br></br>
+              <h3>More ressources</h3>
+              <p>
+                <ul>
+                  <li><a href="https://imagej.nih.gov/ij/">ImageJ website</a></li>
+                  <li><a href="https://imagej.net/Welcome">ImageJ 2 website</a></li>
+                  <li><a href="https://fiji.sc/">Fiji website</a></li>
+                </ul>
+              </p>
+              </br></br>
+            <div class="contact">
+              <p>
+                
+              </p>
+            </div>
+          </div>
+        </div>
+
+    </body>
+</html>

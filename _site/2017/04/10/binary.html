@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>What is an image?</title>
+        <title>Working with binary</title>
         <meta name="viewport" content="width=device-width">
         <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
         <!-- syntax highlighting CSS -->
@@ -23,72 +23,27 @@
 
           <div class="PageNavigation">
   
+    <a class="prev" href="/imagej/2017/04/03/Introduction.html">&laquo; What is an image?</a>
   
-    <a class="next" href="/imagej/2017/04/10/binary.html">Working with binary &raquo;</a>
+  
+    <a class="next" href="/imagej/2017/04/10/macros.html">Start with macros &raquo;</a>
   
 </div>
 
 
-<h1>What is an image?</h1>
-<p class="meta">03 Apr 2017</p>
+<h1>Working with binary</h1>
+<p class="meta">10 Apr 2017</p>
 <br>
 
 
 <div class="post">
-<p><a href="/imagej/docs/ImageJ-Introduction.pdf">Download slides</a></p>
+<h2 id="what-are-stacks">What are stacks?</h2>
 
-<hr />
-
-<h2 id="images-are-matrices">Images are matrices</h2>
-
-<p>Images are matrices of pixels. Image analysis is basically matrices manipulations and analysis.</p>
-
-<p><img src="https://plantmodelling.github.io/intro-imagej/img/image-1.png" style="width: 80%" /></p>
+<p>Stacks are pile of images. They are vectors of 2D matrices, so can be seen as 3D matrices. The third dimension can take different values</p>
 
 <ul>
-  <li><code class="highlighter-rouge">8-bit greyscale images</code>:  each pixel can take an integer value</li>
+  <li><code class="highlighter-rouge">the wavelength</code> = color stacks are formed of 3 matrices, each one tacking a color channel value (RGB or HSV)</li>
 </ul>
-
-<p><img src="https://plantmodelling.github.io/intro-imagej/img/image-2.png" style="width: 80%" /></p>
-
-<h2 id="image-format">Image format</h2>
-
-<p>The format in which is saved is highly relevant for image analysis. Two big classes of image classes exist. The <code class="highlighter-rouge">loosless</code> format do not loose information when savng the images. The <code class="highlighter-rouge">lossy</code> format, usually compressed format, will modify the pixels values to reduce the size of the image (and therefore loose informations.</p>
-
-<p>In a perspective of image analysis, lossy format must be avoided at all cost. Using successive lossy compression (or save successively the same image in a lossy format), will cause loss and/or modification of the informtion contained in the image.</p>
-
-<p><img src="https://plantmodelling.github.io/intro-imagej/img/image-types.png" style="width: 80%" /></p>
-
-<h3 id="different-type-of-images">Different type of images:</h3>
-
-<ul>
-  <li><code class="highlighter-rouge">JPEG</code>
-    <ul>
-      <li>lossy compression</li>
-      <li><strong>loss of informations</strong></li>
-      <li>light</li>
-      <li><strong>DO NOT USE</strong></li>
-    </ul>
-  </li>
-  <li><code class="highlighter-rouge">TIFF</code>
-    <ul>
-      <li>no compression</li>
-      <li>NO loss of informations</li>
-      <li>heavy</li>
-    </ul>
-  </li>
-  <li>PNG`
-    <ul>
-      <li>lossless compression</li>
-      <li>NO loss of informations</li>
-      <li>light</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="more-info">More info:</h3>
-
-<p>Minervini, M. et al. (2015) The significance of image compression in plant phenotyping applications. Funct. Plant Biol. <a href="http://www.publish.csiro.au/?paper=FP15033">Website</a>. <a href="https://paperpile.com/app/p/f7d9b25d-40f9-02c9-8d0a-f343d19d25e1">PDF</a></p>
 
 
 
