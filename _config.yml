@@ -1,3 +1,5 @@
 lname: Introduction to ImageJ
 baseurl: /imagej
 
+
+theme: jekyll-theme-cayman
