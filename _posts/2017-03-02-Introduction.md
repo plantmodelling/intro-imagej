@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  What is an image?
+title:  01 - What is an image?
 date:   2017-04-03
 ---
 
