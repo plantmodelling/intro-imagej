@@ -37,9 +37,9 @@
 <div class="post">
 <h2 id="what-are-stacks">What are stacks?</h2>
 
-<p>Stacks are pile of images. They are vectors of 2D matrices, so can be seen as 3D matrices. The third dimension can take different values</p>
+<p>Stacks are pile of images. They are vectors of 2D matrices, so can be seen as 3D matrices. The third dimension can take different values.</p>
 
-<h3 id="wavelength">Wavelength</h3>
+<h3 id="stacks-with-different-wavelength">Stacks with different wavelength</h3>
 
 <p>Color stacks are formed of 3 matrices, each one tacking a color channel value (RGB or HSV)</p>
 
@@ -50,9 +50,9 @@
 
 <p><img src="https://plantmodelling.github.io/intro-imagej/img/lena.png" style="width: 80%" /></p>
 
-<h3 id="different-type-of-information">Different type of information</h3>
+<h3 id="stacks-with-different-type-of-informations">Stacks with different type of informations</h3>
 
-<p>Different layers contained different information. For instance, the first one can contain the original image, and the second can have only the contours</p>
+<p>Different layers contained different information. For instance, the first one can contain the original image, and the second can have only the contours.</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>&gt; File &gt; Open samples &gt; Blobs
 &gt; Image &gt; Duplicate
@@ -63,6 +63,52 @@
 </div>
 
 <p><img src="https://plantmodelling.github.io/intro-imagej/img/blobs.png" style="width: 80%" /></p>
+
+<h3 id="stacks-with-different-z-positon">Stacks with different Z positon</h3>
+
+<p>The different layers represent the thrid dimension in space. The stack in the case is a volume. ImageJ has some buit-in utilities to render the 3D stack in volume.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; File &gt; Open samples &gt; Bat cochlear rendering
+
+&gt; File &gt; Open samples &gt; Bat cochlear volume
+&gt; Image &gt; Stacks &gt; 3D project
+</code></pre>
+</div>
+
+<p><img src="https://plantmodelling.github.io/intro-imagej/img/bat.png" style="width: 80%" /></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; File &gt; Open samples &gt; t1-head
+&gt; Image &gt; Stacks &gt; Orthogonal view
+</code></pre>
+</div>
+
+<p><img src="https://plantmodelling.github.io/intro-imagej/img/t1-head.png" style="width: 80%" /></p>
+
+<h3 id="stacks-with-different-time">Stacks with different time</h3>
+
+<p>These stacks are movies. Each slice is a time point.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; File &gt; Open samples &gt; Mitosis
+</code></pre>
+</div>
+
+<h2 id="using-stacks-to-work-on-several-images">Using stacks to work on several images</h2>
+
+<p>If all the images of interest are open as a single stack, any operation done on the displayed image will be perfomed on all the images contained into the slack</p>
+
+<h2 id="importing-images-in-a-single-stack">Importing images in a single stack</h2>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; File &gt; Import &gt; Image sequence
+</code></pre>
+</div>
+
+<p>This will open all the images and load them all in memory. Can be slow for large stacks of large images</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>&gt; File &gt; Import &gt; TIFF virtual stack
+</code></pre>
+</div>
+
+<p>This will only open the active image, once at a time.</p>
 
 
 
