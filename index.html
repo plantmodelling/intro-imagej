@@ -1,0 +1,21 @@
+---
+layout: default
+title: Introduction to ImageJ
+---
+
+<div id="home">
+  <h1>About the course</h1>
+  <p> This course is an introduction to the image analysis software ImageJ. It was first given at the Université catholique de Louvain in 2017</p>
+  
+  <h1>Courses</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h2>About Us</h2>
+  <p> <a href="http://www.guillaumelobet.be/">Guillaume Lobet</a> and <a href="https://uclouvain.be/fr/repertoires/xavier.draye">Xavier Draye</a></p>
+  
+
+</div>
