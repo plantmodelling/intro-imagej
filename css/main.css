@@ -25,7 +25,8 @@ h1 {
 }
 
 h2 {
-  font-size: 130%; color: #323232
+  font-size: 130%; 
+  color: #323232;
   margin-top: 1.5em;
   margin-bottom: 1.2em;
 }
