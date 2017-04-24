@@ -1,277 +1,81 @@
 <!-- 
 page_number: true
-footer: Guillaume Lobet & Xavier Draye || ACELI formation || Introduction to ImageJ
+footer: Guillaume Lobet & Xavier Draye || ACELI formation || Image analysis pipeline
 -->
 
 # Introduction to ImageJ
 
-2017-04-10
+> Improve your image analysis pipeline
+
+2017-04-24
 
 Xavier Draye and Guillaume Lobet
 
 ---
 
-# Macros in ImageJ
-
----
-
-# What are macros?
-
-Simply put, an ImageJ macro is a ==succession of existing ImageJ commands==. 
-
-Once you have defined exactly the type of analysis you would like to eprfom on your images, it is worth creating a macro with the different steps. 
-
---- 
-
-# Advantage 1: Track the steps in your analysis
+# Image analysis pipeline
 
 
-First, it help you keep track of all the steps you used in your analysis. If you need to do the same analysis a year later, or ou want to check which algorithm you used when writing the paper, macro are perfect for that. 
+Image analysis is only one of the step in the global data analysis pipeline:
 
-They are a nice way to ==keep track of eveything manipulation and analysis== you did on your images. 
-
-> #openscience #reproducibility
-
-
---- 
-
-# Advantage 2: Batch processing
-
-1. Define your pipeline on several test images. If possible pick them such as they represent the variability in your dataset. 
-2. Record the step to create a macro
-3. Apply it on the whole dataset. 
+1. Image acquisition
+2. Image analysis
+3. Data analysis
 
 
-> It will save you a lot of time and avoid errors.
-
-
-
---- 
-
-# Record your macro
-
-ImageJ has a very handy utility to record command and create a macro out of them. 
-
-
-1. Open the recorder
-`> Plugins > Macro > Record...`
-
-2. Start your different operations
-3. Click `Create` and save it with the `.ijm` file extension
-4. Run your macro
+Sometimes it is easier to improve previous or future steps rather than spend too much time on the image analysis in itself...
 
 
 ---
 
-# Use your macro in batch
+# Improve image acquisition
 
-The main advantage of the macros in ImageJ is that they allow you to process hundreds of images at once. 
+- Better lighting conditions
 
-ImageJ has an utility to launch a specific macro on a whole folder
+- Keep same disctance between camera and object
 
-`> Process > Batch > Macro...`
+- Increase contrast between background and object
 
+- Reduce the number of artefact in the object
 
----
-
-## ImageJ macro language is a simplified version of Java
-
-
-The ImageJ macro language is a ==modified version of Java==. Therefore, they share some similarities.
-
-
----
-# ImageJ macro as Java - 1
-
-Commented lines start with `//`
-
-	// This is a commented line
-    
-Or you can comment several lines using `/***/`
-
-	/*
-    *  This is several 
-    *  commented lines
-    */
+- Try different sensors (visible, infrared, multispectral)
 
 
 ---
 
-# ImageJ macro as Java - 2
+## Improve the image acquisition
 
-Each line need to finish with an `;`
 
-	// Each line need to end with ";"
-	run("Convert to Mask");
-    
-But not foor loops start and end
-
-	// Not for loop start
-  	for(k = 0 ;k < 10 ; k++){ 
-		// But do not forget inside the loop
-		print(k); 
-	} // Or end
+| ![](http://www.plantmodelling.xyz/content/5-blog/17-acquiring-root-images/logo.jpg) | A. Camera </br> B. Fixed distance </br> C. Black background </br> D. Scale |
+| ---- | ---- |
 
 ---
 
-# ImageJ macro as Java - 3
+# Improve image analysis
 
-The first element in a vector as the index `0`
+- Calibrate your pipeline
 
-  	dir=getDirectory("Where are your images"); 
-  	list=getFileList(dir);	
-  	num=list.length;  
-    
-  	for(k = 0 ;k < num ; k++){ 
-    	  open(dir+list[k]);   
-    	  close();  
-	}
+- Find a robust ground-truth dataset
+	- manual measurements
+	- simulated images
+   
+- Estimate the error
+
+---
+
+## Estimate the error
+
+![](https://github.com/plantmodelling/intro-imagej/blob/master/img/error.png?raw=true)
+
 
 
 ---
 
-# Going further with the macros
+# Improve data processing
+
+- Filter out noisy data
+
+- Correctly identify outlyers
 
 
 
-Macros are extremelly versatiles and can be used to do a lot of different tasks
-
-
-Let's build a more complicated one. 
-
-
-## More about macros: 
-[https://imagej.nih.gov/ij/developer/macro/macros.html](https://imagej.nih.gov/ij/developer/macro/macros.html)
-
---- 
-
-# Advanced macro - 1
-
-Setup the intial parameters
-
-
-	// Initial parameters
-	
-    // We do not want ImageJ to open the images
-    setBatchMode(true);
-    
-    // We define the measurements we want to make
-	run("Set Measurements...", "area centroid center 
-    redirect=None decimal=2");
-    
-    
---- 
-
-# Advanced macro - 2
-
-Open user defined folder 
-
-	// Define the directories for the analysis
-	dir = getDirectory("Where are your raw images");
-
-This will trigeer a pop-window and ask the user to choose a folder.
-
-Then, get the list of file inside the folder
-
-	// Get the file list
-	list = getFileList(dir);
-	num = list.length;
-
---- 
-
-# Advanced macro - 3
-
-Navigate the list of files
-
-  	// Loop over the file list to analyse all the images
-    
-  	for(k = 0 ; k < num ; k++){
-
-        // Get the file and open it
-        t = dir + list[k];
-        open(t);
-
-        // Get the file name
-        ti=getTitle();
-        
-        [...]
-	}
-
---- 
-
-# Advanced macro - 4
-
-Threshold the image 
-
-	// Threshold the images
-    
-	setAutoThreshold("Default dark");
-	run("Convert to Mask");
-    
-    
-And analyse the particules    
-
-	// Analyse the particules    
-    
-	run("Analyze Particles...", "size=50-Infinity 
-    circularity=0.00-1.00 show=Masks add 
-    display clear exclude");
-
---- 
-
-# Advanced macro - 5
-
-Save the resulting image
-
-	// Close the old image
-	selectWindow(ti);
-	close();
-    
-    // Save the new one
-	selectWindow("Mask of " + ti);
-    saveAs("Tiff", dir+"new-",list[k]);
-	close();
-
-
----
-
-# Advanced macro
-	// Initial parameters
-	setBatchMode(true);
-    run("Set Measurements...", "area centroid center redirect=None decimal=2");
-    
-   	// Define the directories for the analysis
-	dir = getDirectory("Where are your raw images");
-
-	// Get the file list
-	list = getFileList(dir);
-	num = list.length;
-
-  	for(k = 0 ; k < num ; k++){
-
-        // Get the file and open it
-        t = dir + list[k];
-        print(list[k]+" analysis started");
-        open(t);
-
-        // Get the file name
-
----        
-        // Get the file name
-        ti=getTitle();
-        
-        setAutoThreshold("Default dark");
-		run("Convert to Mask");
-            
-		run("Analyze Particles...", "size=50-Infinity circularity=0.00-1.00 show=Masks add display clear exclude");
-        
-       	// Close the old image
-        selectWindow(ti);
-        close();
-
-        // Save the new one
-        selectWindow("Mask of " + ti);
-        saveAs("Tiff", dir+"new-",list[k]);
-        close();
-	}
-    print("Analysis done on "+num+ " images");
