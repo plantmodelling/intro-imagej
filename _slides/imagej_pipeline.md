@@ -7,6 +7,13 @@ footer: Guillaume Lobet & Xavier Draye || ACELI formation || Image analysis pipe
 
 > Improve your image analysis pipeline
 
+</br>
+
+http://bit.ly/intro-imagej
+
+</br>
+
+
 2017-04-24
 
 Xavier Draye and Guillaume Lobet
@@ -40,6 +47,13 @@ Sometimes it is easier to improve previous or future steps rather than spend too
 
 - Try different sensors (visible, infrared, multispectral)
 
+
+---
+
+## Improve the image acquisition
+
+
+![](http://www.plantmodelling.xyz/content/5-blog/17-acquiring-root-images/leaf.png)
 
 ---
 
