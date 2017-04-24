@@ -53,7 +53,14 @@ Sometimes it is easier to improve previous or future steps rather than spend too
 ## Improve the image acquisition
 
 
-![](http://www.plantmodelling.xyz/content/5-blog/17-acquiring-root-images/leaf.png)
+![](https://github.com/plantmodelling/intro-imagej/blob/master/img/leaf.png?raw=true)
+
+---
+
+## Improve the image acquisition
+
+
+![](https://github.com/plantmodelling/intro-imagej/blob/master/img/root.png?raw=true)
 
 ---
 
