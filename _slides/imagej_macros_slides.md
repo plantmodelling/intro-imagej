@@ -81,7 +81,7 @@ The ImageJ macro language is a ==modified version of Java==. Therefore, they sha
 
 
 ---
-# ImageJ macro ≈ Java - 1
+# ImageJ macro as Java - 1
 
 Commented lines start with `//`
 
@@ -97,7 +97,7 @@ Or you can comment several lines using `/***/`
 
 ---
 
-# ImageJ macro ≈ Java - 2
+# ImageJ macro as Java - 2
 
 Each line need to finish with an `;`
 
@@ -114,7 +114,7 @@ But not foor loops start and end
 
 ---
 
-# ImageJ macro ≈ Java - 3
+# ImageJ macro as Java - 3
 
 The first element in a vector as the index `0`
 
